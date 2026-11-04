@@ -16,5 +16,15 @@ namespace Cifrariodicesare
         {
             InitializeComponent();
         }
+
+        private void btn_n1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace (txt_n1.Text) )
+            {
+                
+                MessageBox.Show("Attenzione! Il campo di testo è vuoto.", 
+                                   MessageBoxButtons.OK,                           MessageBoxIcon.Warning );
+            }
+        }
     }
 }
