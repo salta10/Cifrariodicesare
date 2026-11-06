@@ -21,18 +21,23 @@ namespace Cifrariodicesare
 
         private void btn_n1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_criptaggio.Text))
+            if (string.IsNullOrWhiteSpace(txt_criptaggio.Text) && string.IsNullOrWhiteSpace(txt_chiave.Text))
+            {
+                MessageBox.Show("Attenzione! I campi di testo sono vuoti", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txt_criptaggio.Text))
             {
 
                 MessageBox.Show("Attenzione! Il campo di testo è vuoto", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
+                return;
 
             }
-            if (string.IsNullOrWhiteSpace(txt_chiave.Text))
+            else if (string.IsNullOrWhiteSpace(txt_chiave.Text))
             {
 
                 MessageBox.Show("Attenzione! Il campo della chiave è vuoto", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                return;
 
             }
             string testocriptaggio = txt_criptaggio.Text;
@@ -67,24 +72,28 @@ namespace Cifrariodicesare
                     risultato = risultato + carattere;
                 }
             }
-            lbl_risultato1.Text = ("RISULTATO:" + risultato);
+            lbl_risultato1.Text = ("RISULTATO: " + risultato);
         }
 
         private void btn_n2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_decriptaggio.Text))
+            if (string.IsNullOrWhiteSpace(txt_decriptaggio.Text) && string.IsNullOrWhiteSpace(txt_chiave.Text))
+            {
+                MessageBox.Show("Attenzione! I campi di testo sono vuoti", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txt_decriptaggio.Text))
             {
 
                 MessageBox.Show("Attenzione! Il campo di testo è vuoto", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                return;
 
             }
-            
-            if (string.IsNullOrWhiteSpace(txt_chiave.Text))
+            else if (string.IsNullOrWhiteSpace(txt_chiave.Text))
             {
 
                 MessageBox.Show("Attenzione! Il campo della chiave è vuoto", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                return;
 
             }
             string testodecriptaggio = txt_decriptaggio.Text;
@@ -98,7 +107,7 @@ namespace Cifrariodicesare
 
                 if (carattere >= 'A' && carattere <= 'Z')
                 {
-                    char letterasuccessiva = (char)(carattere + chiave);
+                    char letterasuccessiva = (char)(carattere - chiave);
                     if (letterasuccessiva > 'Z')
                     {
                         letterasuccessiva = (char)(letterasuccessiva - 26);
@@ -107,7 +116,7 @@ namespace Cifrariodicesare
                 }
                 else if (carattere >= 'a' && carattere <= 'z')
                 {
-                    char letterasuccessiva = (char)(carattere + chiave);
+                    char letterasuccessiva = (char)(carattere - chiave);
                     if (letterasuccessiva > 'z')
                     {
                         letterasuccessiva = (char)(letterasuccessiva - 26);
@@ -119,7 +128,9 @@ namespace Cifrariodicesare
                     risultato = risultato + carattere;
                 }
             }
-            lbl_risultato2.Text = ("RISULTATO:" + risultato);
+            lbl_risultato2.Text = ("RISULTATO: " + risultato);
         }
+
+       
     }     
 }
