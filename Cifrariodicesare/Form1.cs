@@ -131,6 +131,6 @@ namespace Cifrariodicesare
             lbl_risultato2.Text = ("RISULTATO: " + risultato);
         }
 
-       
+        
     }     
 }
