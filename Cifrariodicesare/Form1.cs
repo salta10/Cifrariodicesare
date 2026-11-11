@@ -21,7 +21,7 @@ namespace Cifrariodicesare
 
         private void btn_n1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_criptaggio.Text) && string.IsNullOrWhiteSpace(txt_chiave.Text))
+            if (string.IsNullOrWhiteSpace(txt_criptaggio.Text) && string.IsNullOrWhiteSpace(txt_chiave_variabile_criptaggio.Text))
             {
                 MessageBox.Show("Attenzione! I campi di testo sono vuoti", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -33,7 +33,7 @@ namespace Cifrariodicesare
                 return;
 
             }
-            else if (string.IsNullOrWhiteSpace(txt_chiave.Text))
+            else if (string.IsNullOrWhiteSpace(txt_chiave_variabile_criptaggio.Text))
             {
 
                 MessageBox.Show("Attenzione! Il campo della chiave è vuoto", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -41,7 +41,7 @@ namespace Cifrariodicesare
 
             }
             string testocriptaggio = txt_criptaggio.Text;
-            int chiave = Convert.ToInt32(txt_chiave.Text);
+            int chiave = Convert.ToInt32(txt_chiave_variabile_criptaggio.Text);
             chiave = chiave % 26;
             string risultato = "";
             for (int i = 0; i < testocriptaggio.Length; i++)
@@ -77,7 +77,7 @@ namespace Cifrariodicesare
 
         private void btn_n2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_decriptaggio.Text) && string.IsNullOrWhiteSpace(txt_chiave.Text))
+            if (string.IsNullOrWhiteSpace(txt_decriptaggio.Text) && string.IsNullOrWhiteSpace(txt_chiave_variabile_criptaggio.Text))
             {
                 MessageBox.Show("Attenzione! I campi di testo sono vuoti", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -89,7 +89,7 @@ namespace Cifrariodicesare
                 return;
 
             }
-            else if (string.IsNullOrWhiteSpace(txt_chiave.Text))
+            else if (string.IsNullOrWhiteSpace(txt_chiave_variabile_criptaggio.Text))
             {
 
                 MessageBox.Show("Attenzione! Il campo della chiave è vuoto", "ATTENZIONE!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -97,7 +97,7 @@ namespace Cifrariodicesare
 
             }
             string testodecriptaggio = txt_decriptaggio.Text;
-            int chiave = Convert.ToInt32(txt_chiave.Text);
+            int chiave = Convert.ToInt32(txt_chiave_variabile_criptaggio.Text);
             chiave = chiave % 26;
             string risultato = "";
             for (int i = 0; i < testodecriptaggio.Length; i++)
@@ -131,6 +131,5 @@ namespace Cifrariodicesare
             lbl_risultato2.Text = ("RISULTATO: " + risultato);
         }
 
-        
     }     
 }
